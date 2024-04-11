@@ -4,5 +4,5 @@ numpy==1.26.4
 open3d==0.18.0
 Pillow==10.3.0
 requests==2.31.0
-torch==1.9.0
+torch==2.2.2
 transformers==4.39.3
