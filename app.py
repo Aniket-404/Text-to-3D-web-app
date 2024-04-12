@@ -83,7 +83,12 @@ def generate_depth():
     output_file_path = os.path.join(STATIC_FOLDER, 'output.ply')
     o3d.io.write_point_cloud(output_file_path, pcd)
     
-    return jsonify({'image': 'generated_image.jpg', 'depth': 'generated_depth.jpg', 'point_cloud': 'output.ply'})
+    # Convert .ply to .obj
+    mesh = o3d.io.read_triangle_mesh(output_file_path)
+    obj_output_file_path = os.path.join(STATIC_FOLDER, 'output.obj')
+    o3d.io.write_triangle_mesh(obj_output_file_path, mesh)
+    
+    return jsonify({'image': 'generated_image.jpg', 'depth': 'generated_depth.jpg', 'point_cloud': 'output.ply', 'obj_file': 'output.obj'})
 
 def query_api(payload):
     response = requests.post(API_URL, headers=HEADERS, json=payload)

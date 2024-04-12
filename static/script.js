@@ -3,7 +3,7 @@ const loadingImg = document.getElementById("loading");
 const imageContainer = document.getElementById("image-container");
 const image = document.getElementById("image");
 const depthButton = document.getElementById("depth-button");
-const pointCloudLink = document.getElementById("point-cloud-link");
+const objFileLink = document.getElementById("obj-file-link");
 const imageDownload = document.getElementById("image-download");
 const button = document.getElementById("btn");
 
@@ -37,6 +37,12 @@ button.addEventListener('click', async function () {
     depthButton.onclick = function () {
         window.open(`static/${result.depth}`, '_blank');
     };
-    pointCloudLink.href = `static/${result.point_cloud}`;
+    objFileLink.href = `static/${result.obj_file}`; // Update the href for .OBJ file
     imageDownload.href = `static/${result.image}`;
+});
+
+// Add event listener for clicking on the download link for the .obj file
+objFileLink.addEventListener('click', function() {
+    // Since the link is set to download, no action is needed here
+    // The browser will handle the download automatically when clicked
 });
