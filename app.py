@@ -1,4 +1,5 @@
 import base64
+from multiprocessing import process
 from flask import Flask, render_template, request, jsonify, send_from_directory
 import requests
 from transformers import DPTImageProcessor, DPTForDepthEstimation
@@ -7,11 +8,14 @@ import numpy as np
 from PIL import Image
 import open3d as o3d
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 
 # Load API key from environment variable
-HUGGINGFACE_API_KEY = os.environ.get('HUGGINGFACE_API_KEY')
+HUGGINGFACE_API_KEY = os.environ.get('KEY', None)
 if not HUGGINGFACE_API_KEY:
     raise ValueError('HUGGINGFACE_API_KEY environment variable is not set')
 
