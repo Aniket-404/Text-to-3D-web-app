@@ -8,19 +8,19 @@ import numpy as np
 from PIL import Image
 import open3d as o3d
 import os
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
-# load_dotenv()
+load_dotenv()
 
 app = Flask(__name__)
 
 # Load API key from environment variable
-# HUGGINGFACE_API_KEY = os.environ.get('KEY', None)
-# if not HUGGINGFACE_API_KEY:
-#     raise ValueError('HUGGINGFACE_API_KEY environment variable is not set')
+HUGGINGFACE_API_KEY = os.environ.get('key', None)
+if not HUGGINGFACE_API_KEY:
+    raise ValueError('HUGGINGFACE_API_KEY environment variable is not set')
 
 API_URL = "https://api-inference.huggingface.co/models/Melonie/text_to_image_finetuned"
-HEADERS = {"Authorization": "Bearer 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"}
+HEADERS = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
 STATIC_FOLDER = os.path.join(os.getcwd(), 'static')
 
 @app.route('/')
