@@ -1,7 +1,3 @@
-Sure, here's an updated version of the README file:
-
----
-
 # 📝 Text to 3D Model Conversion Web Application
 
 This is a web application that allows users to create images from text prompts and convert those images into 3D models. It uses Hugging Face's text-to-image model for image generation and OpenAI's DPT model for depth estimation.
@@ -27,12 +23,12 @@ This is a web application that allows users to create images from text prompts a
 1. Clone this repository to your local machine.
 2. Install the required Python packages using pip:
    - `pip install -r requirements.txt`
-3. Set up the Hugging Face API environment variable:
-   - On Windows: `set HUGGINGFACE_API_KEY=your_api_key_here`
-   - On macOS and Linux: `export HUGGINGFACE_API_KEY=your_api_key_here`
-4. Run the Flask application:
+3. Create a `.env` file in the root directory of the project.
+4. Add your Hugging Face API key to the `.env` file:
+   - `key=your_api_key_here`
+5. Run the Flask application:
    - `python app.py`
-5. Access the application in your web browser at [http://localhost:5000](http://localhost:5000).
+6. Access the application in your web browser at [http://localhost:5000](http://localhost:5000).
 
 ## 💡 Usage
 
@@ -52,4 +48,4 @@ This is a web application that allows users to create images from text prompts a
 
 --- 
 
-Make sure to replace `your_api_key_here` with your actual Hugging Face API key.
+Make sure to replace `your_api_key_here` with your actual Hugging Face API key. Ensure the `.env` file is placed in the project directory and it's not committed to version control to keep your API key secure.
