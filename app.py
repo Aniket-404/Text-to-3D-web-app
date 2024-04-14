@@ -5,7 +5,7 @@ import requests
 from transformers import DPTImageProcessor, DPTForDepthEstimation
 import torch
 import numpy as np
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 import open3d as o3d
 import os
 from dotenv import load_dotenv
@@ -45,7 +45,11 @@ def generate_depth():
     image_path = os.path.join(STATIC_FOLDER, 'generated_image.jpg')
     with open(image_path, 'wb') as f:
         f.write(image_bytes)
-    image = Image.open(image_path)
+    
+    try:
+        image = Image.open(image_path)
+    except UnidentifiedImageError:
+        return jsonify({'error': 'UnidentifiedImageError', 'message': 'Cannot identify image file. Please try again.'}), 500
     
     # Perform depth estimation
     processor = DPTImageProcessor.from_pretrained("Intel/dpt-beit-large-512")
