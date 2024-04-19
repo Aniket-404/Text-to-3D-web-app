@@ -75,8 +75,8 @@ def generate_depth():
     # Generate point cloud
     depth_map = np.array(depth)
     color_image = np.array(image)
-    fx = 1000
-    fy = 1000
+    fx = 900
+    fy = 900
     cx = color_image.shape[1] / 2
     cy = color_image.shape[0] / 2
     point_cloud = []
