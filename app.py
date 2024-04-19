@@ -19,7 +19,7 @@ HUGGINGFACE_API_KEY = os.environ.get('key', None)
 if not HUGGINGFACE_API_KEY:
     raise ValueError('HUGGINGFACE_API_KEY environment variable is not set')
 
-API_URL = "https://api-inference.huggingface.co/models/Melonie/text_to_image_finetuned"
+API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0"
 HEADERS = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
 STATIC_FOLDER = os.path.join(os.getcwd(), 'static')
 
