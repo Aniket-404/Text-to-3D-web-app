@@ -1,6 +1,6 @@
 # 📝 Text to 3D Model Conversion Web Application
 
-This is a web application that allows users to create images from text prompts and convert those images into 3D models. It uses Hugging Face's text-to-image model for image generation and OpenAI's DPT model for depth estimation.
+This web application allows users to create images from text prompts and convert those images into 3D models. It uses Hugging Face's text-to-image model for image generation and OpenAI's DPT model for depth estimation.
 
 ## ✨ Features
 
